@@ -1,24 +1,14 @@
 # Reinforcement Learning Project
 
-## Project Structure
-
-```
-├──l2rpn_ppo.ipynb
-├── PPO_reward_images/
-│   ├── baseline.png
-│   ├── improvement_1.png
-│   └── improvement_2.png
-├── PPO_saved_models/
-│   ├── baseline_model.zip
-│   ├── improvement_1_model.zip
-│   ├── improvement_2_model.zip
-
-```
-
 ## Overview
 This project implements reinforcement learning agents to manage and optimize power flow in electrical networks using the Grid2Op environment, with a focus on maintaining reliable electricity distribution while satisfying N-1 safety conditions. The implementation uses DQN (Deep Q-Network) and Proximal Policy Optimization (PPO) with various improvements to the base model, demonstrating the effects of different observation spaces, action types, and normalization strategies on agent performance in power grid management tasks.
 
+
+## Project Structure
+The main folder contains the notebooks for the DQN and PPO models respectively. Each approach has a sub-folder containing the saved models that are discussed in the report and another sub-folder for the training reward graphs. 
+
 ## Model Configurations
+Below are the parameter configurations for training the models. But, in the case of just using models that are already trained in order to save time, you can go to the Model Evaluation section.
 
 ### Available Models
 #### PPO
@@ -67,7 +57,7 @@ The modelimplementation builds the environment using three key parameters:
 ### Model Evaluation
 To evaluate the pre-trained models:
 
-1. Load the desired model from the `PPO_saved_models` directory
+1. Load the desired model from the `PPO_saved_models` or `DQN_saved_models` directory
 2. Ensure the environment configuration matches the model's training parameters:
 
 ```python
@@ -80,12 +70,9 @@ env = Gym2OpEnv(
 ```
 
 ### Results Visualization
-Training results for each model configuration can be found in the `PPO_reward_images` directory:
-- `baseline.png`: Performance visualization for the baseline model
-- `improvement_1.png`: Results for the first improvement iteration
-- `improvement_2.png`: Results for the second improvement iteration
+Training results for each model configuration can be found in the `PPO_reward_images`  or `DQN_reward_images` directory.
 
 ## Important Notes
 - When loading a pre-trained model, ensure that the environment configuration exactly matches the original training parameters
-- The Improvement 2 model uses specific hyperparameters that must be maintained for proper functionality
+- The PPO Improvement 2 model uses specific hyperparameters that must be maintained for proper functionality
 - Training visualizations are stored separately for each model variant for comparison purposes
